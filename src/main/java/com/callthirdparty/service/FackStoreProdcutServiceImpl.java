@@ -43,6 +43,18 @@ public class FackStoreProdcutServiceImpl implements IProductervice {
 
     }
 
+    @Override
+    public List<Category> getListOfCatogory() {
+        String[] listOfCategory=restTemplate.getForObject("https://fakestoreapi.com/products/categories",String[].class);
+        List<Category> lisOfCategory=new ArrayList<>();
+        for(String  responseCatogory:listOfCategory){
+            Category category = new Category();
+            category.setName(responseCatogory);
+            lisOfCategory.add(category);
+        }
+        return lisOfCategory ;
+    }
+
 
     public  Product getProductFromResponseDTO(ResponseDTO responseDTO){
 

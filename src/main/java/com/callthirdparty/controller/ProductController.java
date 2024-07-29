@@ -36,7 +36,7 @@ public class ProductController {
 
     @GetMapping("/categories")
     public  List<Category> getListOfCategory(){
-        return null;
+        return iProductervice.getListOfCatogory();
     }
 
     @GetMapping("/categories/{categoryname}")
