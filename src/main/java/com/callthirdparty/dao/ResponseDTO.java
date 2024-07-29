@@ -9,12 +9,12 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductDAO {
+public class ResponseDTO {
 
-     private  Long id;
-     private String title;
-     private Double price;
-     private  String description;
-     private  String image;
-     private  String category;
+    private Long id;
+    private String title;
+    private Double price;
+    private String description;
+    private String category;
+    private String image;
 }

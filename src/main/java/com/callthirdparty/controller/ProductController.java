@@ -1,22 +1,23 @@
 package com.callthirdparty.controller;
 
-import com.callthirdparty.dao.ProductDAO;
+import com.callthirdparty.dao.RequestDTO;
+import com.callthirdparty.dao.ResponseDTO;
 import com.callthirdparty.model.Category;
 import com.callthirdparty.model.Product;
 import com.callthirdparty.service.IProductervice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/products")
 public class ProductController {
 
-    @Autowired
+
     IProductervice iProductervice;
 
+    @Autowired
     public ProductController(IProductervice iProductervice){
         this.iProductervice=iProductervice;
     }
@@ -25,11 +26,11 @@ public class ProductController {
     @GetMapping
     public List<Product> getAllProduct(){
 
-         return null;
+         return iProductervice.getListOfProduct();
     }
 
     @GetMapping("/{id}")
-    public ProductDAO getProductById(@PathVariable("id") Long id){
+    public Product getProductById(@PathVariable("id") Long id){
         return iProductervice.getProductById(id);
     }
 
@@ -44,7 +45,7 @@ public class ProductController {
     }
 
     @PostMapping
-    public Product addProduct(@RequestBody ProductDAO product){
+    public Product addProduct(@RequestBody RequestDTO product){
         return null;
     }
 

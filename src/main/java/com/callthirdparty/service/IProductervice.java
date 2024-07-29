@@ -1,8 +1,12 @@
 package com.callthirdparty.service;
 
-import com.callthirdparty.dao.ProductDAO;
+import com.callthirdparty.dao.ResponseDTO;
+import com.callthirdparty.model.Product;
+
+import java.util.List;
 
 public interface IProductervice {
 
-     ProductDAO getProductById(Long id);
+     Product getProductById(Long id);
+     List<Product> getListOfProduct();
 }
