@@ -11,4 +11,5 @@ public interface IProductervice {
      Product getProductById(Long id);
      List<Product> getListOfProduct();
      List<Category> getListOfCatogory();
+     List<Product> getProductByCategoryName(String category);
 }

@@ -33,13 +33,7 @@ public class FackStoreProdcutServiceImpl implements IProductervice {
     public List<Product> getListOfProduct() {
 
          ResponseDTO[] listOfResponseDTO=restTemplate.getForObject("https://fakestoreapi.com/products",ResponseDTO[].class);
-
-         List<Product> listOfProduct=new ArrayList<>();
-
-         for(ResponseDTO responseDTO:listOfResponseDTO){
-             listOfProduct.add(getProductFromResponseDTO(responseDTO));
-         }
-         return listOfProduct;
+         return getListResponseDTOSToListProduct(listOfResponseDTO);
 
     }
 
@@ -53,6 +47,14 @@ public class FackStoreProdcutServiceImpl implements IProductervice {
             lisOfCategory.add(category);
         }
         return lisOfCategory ;
+    }
+
+    @Override
+    public List<Product> getProductByCategoryName(String categoty) {
+
+        ResponseDTO[] listOfResponseDTO=restTemplate.getForObject("https://fakestoreapi.com/products/category/"+categoty,ResponseDTO[].class);
+
+        return getListResponseDTOSToListProduct(listOfResponseDTO);
     }
 
 
@@ -69,5 +71,15 @@ public class FackStoreProdcutServiceImpl implements IProductervice {
         product.setCategory(category);
         return product;
     }
+
+    public  List<Product> getListResponseDTOSToListProduct(ResponseDTO[] responseDTOS){
+
+        List<Product> listOfProduct=new ArrayList<>();
+        for(ResponseDTO responseDTO:responseDTOS){
+            listOfProduct.add(getProductFromResponseDTO(responseDTO));
+        }
+        return listOfProduct;
+    }
+
 
 }

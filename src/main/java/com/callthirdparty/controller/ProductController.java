@@ -41,12 +41,14 @@ public class ProductController {
 
     @GetMapping("/categories/{categoryname}")
     public List<Product> getProductByCategoryName(@PathVariable("categoryname")String categoryname){
-        return null;
+        return iProductervice.getProductByCategoryName(categoryname);
     }
 
     @PostMapping
     public Product addProduct(@RequestBody RequestDTO product){
         return null;
     }
+
+
 
 }
