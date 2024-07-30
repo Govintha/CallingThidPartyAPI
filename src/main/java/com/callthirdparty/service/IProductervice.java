@@ -1,5 +1,6 @@
 package com.callthirdparty.service;
 
+import com.callthirdparty.dao.RequestDTO;
 import com.callthirdparty.dao.ResponseDTO;
 import com.callthirdparty.model.Category;
 import com.callthirdparty.model.Product;
@@ -12,4 +13,5 @@ public interface IProductervice {
      List<Product> getListOfProduct();
      List<Category> getListOfCatogory();
      List<Product> getProductByCategoryName(String category);
+     Product replaceProduct(Long id, RequestDTO requestDTO);
 }

@@ -49,6 +49,10 @@ public class ProductController {
         return null;
     }
 
+    @PutMapping("/{id}")
+    public Product replaceProduct(@RequestBody RequestDTO requestDTO,@PathVariable("id") Long id){
+        return  iProductervice.replaceProduct(id,requestDTO);
+    }
 
 
 }
